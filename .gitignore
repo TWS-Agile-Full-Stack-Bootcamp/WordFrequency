@@ -1,15 +1,9 @@
-﻿################################################################################
+################################################################################
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/dotnet-project-template/dotnet-project-template/bin/Debug/netcoreapp3.1/dotnet-project-template.deps.json
-/dotnet-project-template/dotnet-project-template/bin/Debug/netcoreapp3.1
-/dotnet-project-template/dotnet-project-template/obj
-/dotnet-project-template/dotnet-project-template-test/bin/Debug/netcoreapp3.1
-/dotnet-project-template/dotnet-project-template-test/obj
-/dotnet-project-template/.vs/dotnet-project-template/v16
-/dotnet-project-template/bin/Debug/netcoreapp3.1
+.vs
+/dotnet-project-template/bin
 /dotnet-project-template/obj
-/dotnet-project-template-test/bin/Debug/netcoreapp3.1
-/dotnet-project-template-test/obj/Debug/netcoreapp3.1
+/dotnet-project-template-test/bin
 /dotnet-project-template-test/obj
