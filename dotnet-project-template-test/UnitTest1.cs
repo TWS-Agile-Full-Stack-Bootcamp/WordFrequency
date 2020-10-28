@@ -1,4 +1,4 @@
-using dotnet_project_template;
+using Dotnet_project_template;
 using System;
 using Xunit;
 
