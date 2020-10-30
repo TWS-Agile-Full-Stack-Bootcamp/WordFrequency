@@ -1,6 +1,6 @@
-namespace Dotnet_project_template_test
+namespace WordFrequencyTest
 {
-    using Dotnet_project_template;
+    using WordFrequency;
     using Xunit;
 
     public class UnitTest1

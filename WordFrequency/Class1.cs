@@ -1,4 +1,4 @@
-﻿namespace Dotnet_project_template
+﻿namespace WordFrequency
 {
     using System;
     public class Class1

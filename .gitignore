@@ -3,7 +3,7 @@
 ################################################################################
 
 .vs
-/dotnet-project-template/bin
-/dotnet-project-template/obj
-/dotnet-project-template-test/bin
-/dotnet-project-template-test/obj
+/WordFrequency/bin
+/WordFrequency/obj
+/WordFrequencyTest/bin
+/WordFrequencyTest/obj
