@@ -44,20 +44,8 @@ namespace WordFrequency
 
         private Dictionary<string, List<WordFrequency>> GroupByWord(List<WordFrequency> wordFrequencies)
         {
-            Dictionary<string, List<WordFrequency>> groupedWordFrequencies = new Dictionary<string, List<WordFrequency>>();
-            foreach (var wordFrequency in wordFrequencies)
-            {
-                if (!groupedWordFrequencies.ContainsKey(wordFrequency.Word))
-                {
-                    groupedWordFrequencies.Add(wordFrequency.Word, new List<WordFrequency>() { wordFrequency });
-                }
-                else
-                {
-                    groupedWordFrequencies[wordFrequency.Word].Add(wordFrequency);
-                }
-            }
-
-            return groupedWordFrequencies;
+            return wordFrequencies.GroupBy(wordFrequency => wordFrequency.Word)
+                .ToDictionary(g => g.Key, g => g.ToList());
         }
     }
 }
