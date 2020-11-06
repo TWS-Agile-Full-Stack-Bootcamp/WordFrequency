@@ -22,35 +22,28 @@ namespace WordFrequency
                 return inputStr + " 1";
             }
 
-            try
+            List<Input> inputList = splitWords.Select(word => new Input(word, 1)).ToList();
+            //get the map for the next step of sizing the same word
+            Dictionary<string, List<Input>> map = GetListMap(inputList);
+
+            List<Input> list = new List<Input>();
+            foreach (var entry in map)
             {
-                List<Input> inputList = splitWords.Select(word => new Input(word, 1)).ToList();
-                //get the map for the next step of sizing the same word
-                Dictionary<string, List<Input>> map = GetListMap(inputList);
-
-                List<Input> list = new List<Input>();
-                foreach (var entry in map)
-                {
-                    Input input = new Input(entry.Key, entry.Value.Count);
-                    list.Add(input);
-                }
-
-                list.Sort((w1, w2) => w2.WordCount - w1.WordCount);
-
-                List<string> strList = new List<string>();
-
-                foreach (Input w in list)
-                {
-                    string s = w.Value + " " + w.WordCount;
-                    strList.Add(s);
-                }
-
-                return string.Join("\n", strList.ToArray());
+                Input input = new Input(entry.Key, entry.Value.Count);
+                list.Add(input);
             }
-            catch (Exception e)
+
+            list.Sort((w1, w2) => w2.WordCount - w1.WordCount);
+
+            List<string> strList = new List<string>();
+
+            foreach (Input w in list)
             {
-                return CalculateError;
+                string s = w.Value + " " + w.WordCount;
+                strList.Add(s);
             }
+
+            return string.Join("\n", strList.ToArray());
         }
 
         private Dictionary<string, List<Input>> GetListMap(List<Input> inputList)

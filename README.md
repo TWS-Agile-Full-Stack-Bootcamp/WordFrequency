@@ -8,3 +8,5 @@
 7. Use LINQ to generate map
 8. Extra constant CalculateError
 9. Remove unnecessary list assign
+10. Remove useless exception handler
+
