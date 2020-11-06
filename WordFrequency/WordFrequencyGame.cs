@@ -17,12 +17,12 @@ namespace WordFrequency
                 try
                 {
                     //split the input string with 1 to n pieces of spaces
-                    string[] arr = Regex.Split(inputStr, @"\s+");
+                    string[] words = Regex.Split(inputStr, @"\s+");
 
                     List<Input> inputList = new List<Input>();
-                    foreach (var s in arr)
+                    foreach (var word in words)
                     {
-                        Input input = new Input(s, 1);
+                        Input input = new Input(word, 1);
                         inputList.Add(input);
                     }
 
