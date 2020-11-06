@@ -8,15 +8,7 @@ namespace WordFrequency
     {
         public string GetResult(string inputStr)
         {
-            //split the input string with 1 to n pieces of spaces
-            string[] words = Regex.Split(inputStr, @"\s+");
-
-            List<WordFrequency> wordFrequencies = new List<WordFrequency>();
-            foreach (var word in words)
-            {
-                WordFrequency wordFrequency = new WordFrequency(word, 1);
-                wordFrequencies.Add(wordFrequency);
-            }
+            List<WordFrequency> wordFrequencies = ParseInputToWordFrequency(inputStr);
 
             //get the map for the next step of sizing the same word
             Dictionary<string, List<WordFrequency>> groupedWordFrequencies = GroupByWord(wordFrequencies);
@@ -42,6 +34,21 @@ namespace WordFrequency
             }
 
             return string.Join("\n", strList.ToArray());
+        }
+
+        private static List<WordFrequency> ParseInputToWordFrequency(string inputStr)
+        {
+            //split the input string with 1 to n pieces of spaces
+            string[] words = Regex.Split(inputStr, @"\s+");
+
+            List<WordFrequency> wordFrequencies = new List<WordFrequency>();
+            foreach (var word in words)
+            {
+                WordFrequency wordFrequency = new WordFrequency(word, 1);
+                wordFrequencies.Add(wordFrequency);
+            }
+
+            return wordFrequencies;
         }
 
         private Dictionary<string, List<WordFrequency>> GroupByWord(List<WordFrequency> wordFrequencies)
