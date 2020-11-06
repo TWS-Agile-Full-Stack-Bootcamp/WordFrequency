@@ -45,7 +45,7 @@ namespace WordFrequency
                     //stringJoiner joiner = new stringJoiner("\n");
                     foreach (WordFrequency wordFrequency in wordFrequencies)
                     {
-                        string s = wordFrequency.Value + " " + wordFrequency.WordCount;
+                        string s = wordFrequency.Word + " " + wordFrequency.WordCount;
                         strList.Add(s);
                     }
 
@@ -64,15 +64,15 @@ namespace WordFrequency
             foreach (var input in inputList)
             {
                 //       map.computeIfAbsent(input.getValue(), k -> new ArrayList<>()).add(input);
-                if (!map.ContainsKey(input.Value))
+                if (!map.ContainsKey(input.Word))
                 {
                     List<WordFrequency> arr = new List<WordFrequency>();
                     arr.Add(input);
-                    map.Add(input.Value, arr);
+                    map.Add(input.Word, arr);
                 }
                 else
                 {
-                    map[input.Value].Add(input);
+                    map[input.Word].Add(input);
                 }
             }
 

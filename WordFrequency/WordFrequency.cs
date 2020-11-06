@@ -2,23 +2,23 @@
 {
     public class WordFrequency
     {
-        private string value;
-        private int count;
+        private string word;
+        private int wordCount;
 
-        public WordFrequency(string w, int i)
+        public WordFrequency(string word, int count)
         {
-            this.value = w;
-            this.count = i;
+            this.word = word;
+            this.wordCount = count;
         }
 
-        public string Value
+        public string Word
         {
-            get { return this.value; }
+            get { return this.word; }
         }
 
         public int WordCount
         {
-            get { return this.count; }
+            get { return this.wordCount; }
         }
     }
 }
