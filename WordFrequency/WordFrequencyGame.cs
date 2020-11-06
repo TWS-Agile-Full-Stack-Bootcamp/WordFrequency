@@ -19,20 +19,20 @@ namespace WordFrequency
                     //split the input string with 1 to n pieces of spaces
                     string[] words = Regex.Split(inputStr, @"\s+");
 
-                    List<Input> wordFrequencies = new List<Input>();
+                    List<WordFrequency> wordFrequencies = new List<WordFrequency>();
                     foreach (var word in words)
                     {
-                        Input input = new Input(word, 1);
+                        WordFrequency input = new WordFrequency(word, 1);
                         wordFrequencies.Add(input);
                     }
 
                     //get the map for the next step of sizing the same word
-                    Dictionary<string, List<Input>> map = GetListMap(wordFrequencies);
+                    Dictionary<string, List<WordFrequency>> map = GetListMap(wordFrequencies);
 
-                    List<Input> list = new List<Input>();
+                    List<WordFrequency> list = new List<WordFrequency>();
                     foreach (var entry in map)
                     {
-                        Input input = new Input(entry.Key, entry.Value.Count);
+                        WordFrequency input = new WordFrequency(entry.Key, entry.Value.Count);
                         list.Add(input);
                     }
 
@@ -43,7 +43,7 @@ namespace WordFrequency
                     List<string> strList = new List<string>();
 
                     //stringJoiner joiner = new stringJoiner("\n");
-                    foreach (Input wordFrequency in wordFrequencies)
+                    foreach (WordFrequency wordFrequency in wordFrequencies)
                     {
                         string s = wordFrequency.Value + " " + wordFrequency.WordCount;
                         strList.Add(s);
@@ -58,15 +58,15 @@ namespace WordFrequency
             }
         }
 
-        private Dictionary<string, List<Input>> GetListMap(List<Input> inputList)
+        private Dictionary<string, List<WordFrequency>> GetListMap(List<WordFrequency> inputList)
         {
-            Dictionary<string, List<Input>> map = new Dictionary<string, List<Input>>();
+            Dictionary<string, List<WordFrequency>> map = new Dictionary<string, List<WordFrequency>>();
             foreach (var input in inputList)
             {
                 //       map.computeIfAbsent(input.getValue(), k -> new ArrayList<>()).add(input);
                 if (!map.ContainsKey(input.Value))
                 {
-                    List<Input> arr = new List<Input>();
+                    List<WordFrequency> arr = new List<WordFrequency>();
                     arr.Add(input);
                     map.Add(input.Value, arr);
                 }

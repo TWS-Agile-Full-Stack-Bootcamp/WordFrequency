@@ -1,11 +1,11 @@
 ﻿namespace WordFrequency
 {
-    public class Input
+    public class WordFrequency
     {
         private string value;
         private int count;
 
-        public Input(string w, int i)
+        public WordFrequency(string w, int i)
         {
             this.value = w;
             this.count = i;
