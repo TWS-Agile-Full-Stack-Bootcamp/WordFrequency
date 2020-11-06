@@ -27,10 +27,10 @@ namespace WordFrequency
                     }
 
                     //get the map for the next step of sizing the same word
-                    Dictionary<string, List<WordFrequency>> map = GetListMap(wordFrequencies);
+                    Dictionary<string, List<WordFrequency>> groupedWordFrequencies = GroupByWord(wordFrequencies);
 
                     List<WordFrequency> list = new List<WordFrequency>();
-                    foreach (var entry in map)
+                    foreach (var entry in groupedWordFrequencies)
                     {
                         WordFrequency input = new WordFrequency(entry.Key, entry.Value.Count);
                         list.Add(input);
@@ -58,12 +58,11 @@ namespace WordFrequency
             }
         }
 
-        private Dictionary<string, List<WordFrequency>> GetListMap(List<WordFrequency> wordFrequencies)
+        private Dictionary<string, List<WordFrequency>> GroupByWord(List<WordFrequency> wordFrequencies)
         {
             Dictionary<string, List<WordFrequency>> groupedWordFrequencies = new Dictionary<string, List<WordFrequency>>();
             foreach (var wordFrequency in wordFrequencies)
             {
-                //       map.computeIfAbsent(input.getValue(), k -> new ArrayList<>()).add(input);
                 if (!groupedWordFrequencies.ContainsKey(wordFrequency.Word))
                 {
                     groupedWordFrequencies.Add(wordFrequency.Word, new List<WordFrequency>() { wordFrequency });
