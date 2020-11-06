@@ -5,3 +5,4 @@
 4. Extra split as method
 5. Use LINQ.Select instead of for loop
 6. Remove un-readable comment
+7. Use LINQ to generate map

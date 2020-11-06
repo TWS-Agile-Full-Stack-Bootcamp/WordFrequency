@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
 
@@ -53,22 +55,7 @@ namespace WordFrequency
 
         private Dictionary<string, List<Input>> GetListMap(List<Input> inputList)
         {
-            Dictionary<string, List<Input>> map = new Dictionary<string, List<Input>>();
-            foreach (var input in inputList)
-            {
-                if (!map.ContainsKey(input.Value))
-                {
-                    List<Input> arr = new List<Input>();
-                    arr.Add(input);
-                    map.Add(input.Value, arr);
-                }
-                else
-                {
-                    map[input.Value].Add(input);
-                }
-            }
-
-            return map;
+            return inputList.GroupBy(input => input.Value).ToDictionary(t => t.Key, t => t.ToList());
         }
     }
 }
