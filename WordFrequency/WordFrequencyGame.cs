@@ -19,15 +19,15 @@ namespace WordFrequency
                     //split the input string with 1 to n pieces of spaces
                     string[] words = Regex.Split(inputStr, @"\s+");
 
-                    List<Input> inputList = new List<Input>();
+                    List<Input> wordFrequencies = new List<Input>();
                     foreach (var word in words)
                     {
                         Input input = new Input(word, 1);
-                        inputList.Add(input);
+                        wordFrequencies.Add(input);
                     }
 
                     //get the map for the next step of sizing the same word
-                    Dictionary<string, List<Input>> map = GetListMap(inputList);
+                    Dictionary<string, List<Input>> map = GetListMap(wordFrequencies);
 
                     List<Input> list = new List<Input>();
                     foreach (var entry in map)
@@ -36,16 +36,16 @@ namespace WordFrequency
                         list.Add(input);
                     }
 
-                    inputList = list;
+                    wordFrequencies = list;
 
-                    inputList.Sort((w1, w2) => w2.WordCount - w1.WordCount);
+                    wordFrequencies.Sort((w1, w2) => w2.WordCount - w1.WordCount);
 
                     List<string> strList = new List<string>();
 
                     //stringJoiner joiner = new stringJoiner("\n");
-                    foreach (Input w in inputList)
+                    foreach (Input wordFrequency in wordFrequencies)
                     {
-                        string s = w.Value + " " + w.WordCount;
+                        string s = wordFrequency.Value + " " + wordFrequency.WordCount;
                         strList.Add(s);
                     }
 
