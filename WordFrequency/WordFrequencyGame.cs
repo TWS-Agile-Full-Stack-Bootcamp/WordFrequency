@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace WordFrequency
 {
@@ -7,7 +8,7 @@ namespace WordFrequency
     {
         public string GetResult(string inputStr)
         {
-            if (inputStr.Split("\\s+").Length == 1)
+            if (Regex.Split(inputStr, @"\s+").Length == 1)
             {
                 return inputStr + " 1";
             }
@@ -16,7 +17,7 @@ namespace WordFrequency
                 try
                 {
                     //split the input string with 1 to n pieces of spaces
-                    string[] arr = inputStr.Split("\\s+");
+                    string[] arr = Regex.Split(inputStr, @"\s+");
 
                     List<Input> inputList = new List<Input>();
                     foreach (var s in arr)
