@@ -22,8 +22,8 @@ namespace WordFrequency
                     List<WordFrequency> wordFrequencies = new List<WordFrequency>();
                     foreach (var word in words)
                     {
-                        WordFrequency input = new WordFrequency(word, 1);
-                        wordFrequencies.Add(input);
+                        WordFrequency wordFrequency = new WordFrequency(word, 1);
+                        wordFrequencies.Add(wordFrequency);
                     }
 
                     //get the map for the next step of sizing the same word
@@ -32,8 +32,8 @@ namespace WordFrequency
                     List<WordFrequency> list = new List<WordFrequency>();
                     foreach (var entry in groupedWordFrequencies)
                     {
-                        WordFrequency input = new WordFrequency(entry.Key, entry.Value.Count);
-                        list.Add(input);
+                        WordFrequency wordFrequency = new WordFrequency(entry.Key, entry.Value.Count);
+                        list.Add(wordFrequency);
                     }
 
                     wordFrequencies = list;
