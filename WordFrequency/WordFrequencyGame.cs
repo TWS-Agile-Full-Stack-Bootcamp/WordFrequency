@@ -12,6 +12,11 @@ namespace WordFrequency
 
             List<WordFrequency> mergedWordFrequencies = MergeWordFrequencies(wordFrequencies);
 
+            return Render(mergedWordFrequencies);
+        }
+
+        private static string Render(List<WordFrequency> mergedWordFrequencies)
+        {
             List<string> strList = new List<string>();
 
             //stringJoiner joiner = new stringJoiner("\n");
