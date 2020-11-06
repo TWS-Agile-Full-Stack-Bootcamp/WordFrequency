@@ -8,12 +8,6 @@ namespace WordFrequency
     {
         public string GetResult(string inputStr)
         {
-            if (Regex.Split(inputStr, @"\s+").Length == 1)
-            {
-                return inputStr + " 1";
-            }
-            else
-            {
                 try
                 {
                     //split the input string with 1 to n pieces of spaces
@@ -55,7 +49,6 @@ namespace WordFrequency
                 {
                     return "Calculate Error";
                 }
-            }
         }
 
         private Dictionary<string, List<WordFrequency>> GroupByWord(List<WordFrequency> wordFrequencies)
