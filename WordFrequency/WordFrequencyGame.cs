@@ -6,9 +6,11 @@ namespace WordFrequency
 {
     public class WordFrequencyGame
     {
+        private const string SpacePatten = @"\s+";
+
         public string GetResult(string inputStr)
         {
-            if (Regex.Split(inputStr, @"\s+").Length == 1)
+            if (Regex.Split(inputStr, SpacePatten).Length == 1)
             {
                 return inputStr + " 1";
             }
