@@ -20,5 +20,10 @@
         {
             get { return this.wordCount; }
         }
+
+        public string Render()
+        {
+            return $"{this.Word} {this.WordCount}";
+        }
     }
 }
