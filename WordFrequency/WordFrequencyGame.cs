@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Xml.XPath;
 
 namespace WordFrequency
 {
@@ -21,22 +22,11 @@ namespace WordFrequency
             //get the map for the next step of sizing the same word
             Dictionary<string, List<Input>> map = GetListMap(inputList);
 
-            List<Input> list = new List<Input>();
-            foreach (var entry in map)
-            {
-                Input input = new Input(entry.Key, entry.Value.Count);
-                list.Add(input);
-            }
+            List<Input> list = map.Select(keyValuePair => new Input(keyValuePair.Key, keyValuePair.Value.Count)).ToList();
 
             list.Sort((w1, w2) => w2.WordCount - w1.WordCount);
 
-            List<string> strList = new List<string>();
-
-            foreach (Input w in list)
-            {
-                string s = w.Value + " " + w.WordCount;
-                strList.Add(s);
-            }
+            List<string> strList = list.Select(item => $"{item.Value} {item.WordCount}").ToList();
 
             return string.Join("\n", strList.ToArray());
         }

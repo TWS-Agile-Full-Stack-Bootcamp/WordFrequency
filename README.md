@@ -10,3 +10,4 @@
 9. Remove unnecessary list assign
 10. Remove useless exception handler
 11. Remove process logic that execute only one word 
+12. Use linq instead of loop
