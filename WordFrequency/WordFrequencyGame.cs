@@ -9,11 +9,13 @@ namespace WordFrequency
 {
     public class WordFrequencyGame
     {
+        private const string CalculateError = "Calculate Error";
+
         private const string SpacePatten = @"\s+";
 
         public string GetResult(string inputStr)
         {
-           string[] splitWords = Regex.Split(inputStr, SpacePatten);
+            string[] splitWords = Regex.Split(inputStr, SpacePatten);
 
             if (splitWords.Length == 1)
             {
@@ -49,7 +51,7 @@ namespace WordFrequency
             }
             catch (Exception e)
             {
-                return "Calculate Error";
+                return CalculateError;
             }
         }
 
