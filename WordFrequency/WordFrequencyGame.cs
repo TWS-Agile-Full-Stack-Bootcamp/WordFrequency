@@ -10,17 +10,7 @@ namespace WordFrequency
         {
             List<WordFrequency> wordFrequencies = ParseInputToWordFrequency(inputStr);
 
-            List<WordFrequency> mergedWordFrequencies = new List<WordFrequency>();
-            //get the map for the next step of sizing the same word
-            Dictionary<string, List<WordFrequency>> groupedWordFrequencies = GroupByWord(wordFrequencies);
-
-            foreach (var entry in groupedWordFrequencies)
-            {
-                WordFrequency wordFrequency = new WordFrequency(entry.Key, entry.Value.Count);
-                mergedWordFrequencies.Add(wordFrequency);
-            }
-
-            mergedWordFrequencies.Sort((w1, w2) => w2.WordCount - w1.WordCount);
+            List<WordFrequency> mergedWordFrequencies = MergeWordFrequencies(wordFrequencies);
 
             List<string> strList = new List<string>();
 
@@ -32,6 +22,22 @@ namespace WordFrequency
             }
 
             return string.Join("\n", strList.ToArray());
+        }
+
+        private List<WordFrequency> MergeWordFrequencies(List<WordFrequency> wordFrequencies)
+        {
+            List<WordFrequency> mergedWordFrequencies = new List<WordFrequency>();
+            //get the map for the next step of sizing the same word
+            Dictionary<string, List<WordFrequency>> groupedWordFrequencies = GroupByWord(wordFrequencies);
+
+            foreach (var entry in groupedWordFrequencies)
+            {
+                WordFrequency wordFrequency = new WordFrequency(entry.Key, entry.Value.Count);
+                mergedWordFrequencies.Add(wordFrequency);
+            }
+
+            mergedWordFrequencies.Sort((w1, w2) => w2.WordCount - w1.WordCount);
+            return mergedWordFrequencies;
         }
 
         private static List<WordFrequency> ParseInputToWordFrequency(string inputStr)
