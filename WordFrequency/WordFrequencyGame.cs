@@ -58,21 +58,19 @@ namespace WordFrequency
             }
         }
 
-        private Dictionary<string, List<WordFrequency>> GetListMap(List<WordFrequency> inputList)
+        private Dictionary<string, List<WordFrequency>> GetListMap(List<WordFrequency> wordFrequencies)
         {
             Dictionary<string, List<WordFrequency>> map = new Dictionary<string, List<WordFrequency>>();
-            foreach (var input in inputList)
+            foreach (var wordFrequency in wordFrequencies)
             {
                 //       map.computeIfAbsent(input.getValue(), k -> new ArrayList<>()).add(input);
-                if (!map.ContainsKey(input.Word))
+                if (!map.ContainsKey(wordFrequency.Word))
                 {
-                    List<WordFrequency> arr = new List<WordFrequency>();
-                    arr.Add(input);
-                    map.Add(input.Word, arr);
+                    map.Add(wordFrequency.Word, new List<WordFrequency>() { wordFrequency });
                 }
                 else
                 {
-                    map[input.Word].Add(input);
+                    map[wordFrequency.Word].Add(wordFrequency);
                 }
             }
 
