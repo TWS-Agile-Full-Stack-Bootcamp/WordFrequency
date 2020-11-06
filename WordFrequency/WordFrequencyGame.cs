@@ -18,16 +18,9 @@ namespace WordFrequency
 
         private static string Render(List<WordFrequency> mergedWordFrequencies)
         {
-            List<string> strList = new List<string>();
+            List<string> wordFrequencyTexts = mergedWordFrequencies.Select(wordFrequency => wordFrequency.Word + " " + wordFrequency.WordCount).ToList();
 
-            //stringJoiner joiner = new stringJoiner("\n");
-            foreach (WordFrequency wordFrequency in mergedWordFrequencies)
-            {
-                string s = wordFrequency.Word + " " + wordFrequency.WordCount;
-                strList.Add(s);
-            }
-
-            return string.Join("\n", strList.ToArray());
+            return string.Join("\n", wordFrequencyTexts);
         }
 
         private List<WordFrequency> MergeWordFrequencies(List<WordFrequency> wordFrequencies)
