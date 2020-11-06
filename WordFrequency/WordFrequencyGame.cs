@@ -35,13 +35,11 @@ namespace WordFrequency
                     list.Add(input);
                 }
 
-                inputList = list;
-
-                inputList.Sort((w1, w2) => w2.WordCount - w1.WordCount);
+                list.Sort((w1, w2) => w2.WordCount - w1.WordCount);
 
                 List<string> strList = new List<string>();
 
-                foreach (Input w in inputList)
+                foreach (Input w in list)
                 {
                     string s = w.Value + " " + w.WordCount;
                     strList.Add(s);
