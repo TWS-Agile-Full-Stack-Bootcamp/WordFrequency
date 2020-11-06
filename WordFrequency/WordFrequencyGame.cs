@@ -32,17 +32,12 @@ namespace WordFrequency
 
         private List<WordFrequency> MergeWordFrequencies(List<WordFrequency> wordFrequencies)
         {
-            List<WordFrequency> mergedWordFrequencies = new List<WordFrequency>();
-            //get the map for the next step of sizing the same word
             Dictionary<string, List<WordFrequency>> groupedWordFrequencies = GroupByWord(wordFrequencies);
 
-            foreach (var entry in groupedWordFrequencies)
-            {
-                WordFrequency wordFrequency = new WordFrequency(entry.Key, entry.Value.Count);
-                mergedWordFrequencies.Add(wordFrequency);
-            }
+            List<WordFrequency> mergedWordFrequencies = groupedWordFrequencies.Select(entry => new WordFrequency(entry.Key, entry.Value.Count)).ToList();
 
             mergedWordFrequencies.Sort((w1, w2) => w2.WordCount - w1.WordCount);
+
             return mergedWordFrequencies;
         }
 
