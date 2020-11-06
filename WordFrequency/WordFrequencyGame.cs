@@ -17,11 +17,6 @@ namespace WordFrequency
         {
             string[] splitWords = Regex.Split(inputStr, SpacePatten);
 
-            if (splitWords.Length == 1)
-            {
-                return inputStr + " 1";
-            }
-
             List<Input> inputList = splitWords.Select(word => new Input(word, 1)).ToList();
             //get the map for the next step of sizing the same word
             Dictionary<string, List<Input>> map = GetListMap(inputList);

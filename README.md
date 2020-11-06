@@ -9,4 +9,4 @@
 8. Extra constant CalculateError
 9. Remove unnecessary list assign
 10. Remove useless exception handler
-
+11. Remove process logic that execute only one word 
