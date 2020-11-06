@@ -10,24 +10,22 @@ namespace WordFrequency
         {
             List<WordFrequency> wordFrequencies = ParseInputToWordFrequency(inputStr);
 
+            List<WordFrequency> mergedWordFrequencies = new List<WordFrequency>();
             //get the map for the next step of sizing the same word
             Dictionary<string, List<WordFrequency>> groupedWordFrequencies = GroupByWord(wordFrequencies);
 
-            List<WordFrequency> list = new List<WordFrequency>();
             foreach (var entry in groupedWordFrequencies)
             {
                 WordFrequency wordFrequency = new WordFrequency(entry.Key, entry.Value.Count);
-                list.Add(wordFrequency);
+                mergedWordFrequencies.Add(wordFrequency);
             }
 
-            wordFrequencies = list;
-
-            wordFrequencies.Sort((w1, w2) => w2.WordCount - w1.WordCount);
+            mergedWordFrequencies.Sort((w1, w2) => w2.WordCount - w1.WordCount);
 
             List<string> strList = new List<string>();
 
             //stringJoiner joiner = new stringJoiner("\n");
-            foreach (WordFrequency wordFrequency in wordFrequencies)
+            foreach (WordFrequency wordFrequency in mergedWordFrequencies)
             {
                 string s = wordFrequency.Word + " " + wordFrequency.WordCount;
                 strList.Add(s);
