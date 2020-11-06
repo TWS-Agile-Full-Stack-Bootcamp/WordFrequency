@@ -5,9 +5,9 @@
         private string value;
         private int count;
 
-        public Input(string w, int i)
+        public Input(string value, int i)
         {
-            this.value = w;
+            this.value = value;
             this.count = i;
         }
 
