@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace WordFrequency
@@ -20,13 +21,7 @@ namespace WordFrequency
 
             try
             {
-                List<Input> inputList = new List<Input>();
-                foreach (var s in splitWords)
-                {
-                    Input input = new Input(s, 1);
-                    inputList.Add(input);
-                }
-
+                List<Input> inputList = splitWords.Select(word => new Input(word, 1)).ToList();
                 //get the map for the next step of sizing the same word
                 Dictionary<string, List<Input>> map = GetListMap(inputList);
 
