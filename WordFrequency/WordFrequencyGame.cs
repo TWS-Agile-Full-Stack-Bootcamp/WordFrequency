@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace WordFrequency
@@ -45,19 +46,12 @@ namespace WordFrequency
             return mergedWordFrequencies;
         }
 
-        private static List<WordFrequency> ParseInputToWordFrequency(string inputStr)
+        private List<WordFrequency> ParseInputToWordFrequency(string inputStr)
         {
             //split the input string with 1 to n pieces of spaces
             string[] words = Regex.Split(inputStr, @"\s+");
 
-            List<WordFrequency> wordFrequencies = new List<WordFrequency>();
-            foreach (var word in words)
-            {
-                WordFrequency wordFrequency = new WordFrequency(word, 1);
-                wordFrequencies.Add(wordFrequency);
-            }
-
-            return wordFrequencies;
+            return words.Select(word => new WordFrequency(word, 1)).ToList();
         }
 
         private Dictionary<string, List<WordFrequency>> GroupByWord(List<WordFrequency> wordFrequencies)
